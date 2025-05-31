@@ -60,10 +60,10 @@ const Profile: React.FC = () => {
                         <h3 className="text-white text-base sm:text-lg lg:text-xl mb-2">Задания</h3>
                         <div className="space-y-2">
                             {[
-                                { label: "Тест по основам Figma", score: user.test1 },
-                                { label: "Задание по модулю дизайна", score: user.test2 },
-                                { label: "Тест по основам Figma", score: user.test3 },
-                                { label: "Задание по модулю дизайна", score: user.test4 },
+                                { label: "Древняя Якутия", score: user.test1 },
+                                { label: "Якутия в XVII - XIX вв.", score: user.test2 },
+                                { label: "Советский период(ЯАССР, репрессии)", score: user.test3 },
+                                { label: "Культура и традиции Якутии", score: user.test4 },
                             ].map((task, index) => (
                                 <div key={index} className="flex justify-between items-center bg-purple-400 p-2 sm:p-3 rounded-[12px]">
                                     <span className="text-white text-sm sm:text-base">{task.label}</span>
