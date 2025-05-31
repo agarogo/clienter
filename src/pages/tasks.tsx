@@ -62,7 +62,7 @@ export default function TasksPage() {
 
       <h2 className="text-lg sm:text-xl lg:text-2xl font-bold mb-4 text-center sm:text-left">Все</h2>
       <div className="space-y-4">
-        {tests.map((test, index) => (
+        {tests.map((test) => (
           <div key={test.id} className="bg-purple-500 text-white p-3 sm:p-5 rounded-2xl flex flex-col sm:flex-row justify-between items-center">
             <div>
               <p className="text-base sm:text-lg font-semibold">{test.title}</p>

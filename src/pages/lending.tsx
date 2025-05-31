@@ -1,14 +1,6 @@
 "use client";
 
-import { useRouter } from "next/navigation";
-
 const Page: React.FC = () => {
-  const router = useRouter();
-
-  const handleLinkClick = (path: string) => {
-    router.push(path);
-  };
-
   return (
     <div className="min-h-screen flex flex-col container">
       <header className="bg-white py-8 sm:py-12 lg:py-16">

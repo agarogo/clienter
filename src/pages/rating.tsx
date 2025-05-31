@@ -24,7 +24,7 @@ export default function RatingPage() {
                 if (!res.ok) throw new Error("Ошибка загрузки рейтинга");
                 const data = await res.json();
                 setRatings(data);
-            } catch (err) {
+            } catch {
                 setError("Не удалось загрузить рейтинг");
             }
         };

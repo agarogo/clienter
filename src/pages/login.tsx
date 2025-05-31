@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { FormEvent, useState } from "react";
 
@@ -9,7 +10,7 @@ const Login: React.FC = () => {
     const [password, setPassword] = useState("");
     const [error, setError] = useState<string | null>(null);
 
-    const handleSubmit = async (e: FormEvent) => {
+    const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         setError(null);
 
@@ -33,8 +34,12 @@ const Login: React.FC = () => {
             const data = await response.json();
             localStorage.setItem("token", data.access_token);
             router.push("/");
-        } catch (err: any) {
-            setError(err.message);
+        } catch (err: unknown) {
+            if (err instanceof Error) {
+                setError(err.message);
+            } else {
+                setError("Неизвестная ошибка");
+            }
         }
     };
 
@@ -47,10 +52,7 @@ const Login: React.FC = () => {
                 <div className="w-full max-w-md">
                     <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4 text-black text-center">Войти в аккаунт</h2>
                     <p className="text-sm sm:text-base lg:text-lg mb-6 text-center">
-                        Еще не зарегистрированы?{" "}
-                        <a href="/register" className="hover:underline">
-                            Создать аккаунт
-                        </a>
+                        Еще не зарегистрированы? <Link href="/register" className="hover:underline">Создать аккаунт</Link>
                     </p>
                     {error && <p className="text-red-500 text-center mb-4 text-sm sm:text-base">{error}</p>}
                     <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">

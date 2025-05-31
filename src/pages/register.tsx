@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { FormEvent, useState } from "react";
 
@@ -10,7 +11,7 @@ const Register: React.FC = () => {
     const [password, setPassword] = useState("");
     const [error, setError] = useState<string | null>(null);
 
-    const handleSubmit = async (e: FormEvent) => {
+    const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         setError(null);
 
@@ -36,11 +37,16 @@ const Register: React.FC = () => {
                 throw new Error(errorData.detail || "Ошибка регистрации");
             }
 
-            const data = await response.json();
+            await response.json();
             router.push("/login");
-        } catch (err: any) {
-            setError(err.message);
+        } catch (err: unknown) {
+            if (err instanceof Error) {
+                setError(err.message);
+            } else {
+                setError("Неизвестная ошибка");
+            }
         }
+
     };
 
     return (
@@ -50,12 +56,9 @@ const Register: React.FC = () => {
             </div>
             <div className="w-full sm:w-1/2 bg-white rounded-r-lg p-4 sm:p-6 lg:p-8 flex items-center justify-center">
                 <div className="w-full max-w-md">
-                    <h2 className="text-2xl sm:text-3xl lg:text-466 font-bold mb-4 text-black text-center">Создать аккаунт</h2>
+                    <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4 text-black text-center">Создать аккаунт</h2>
                     <p className="text-sm sm:text-base lg:text-lg mb-6 text-center">
-                        Уже зарегистрированы?{" "}
-                        <a href="/login" className="hover:underline">
-                            Войти
-                        </a>
+                        Уже зарегистрированы? <Link href="/login" className="hover:underline">Войти</Link>
                     </p>
                     {error && <p className="text-red-500 text-center mb-4 text-sm sm:text-base">{error}</p>}
                     <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
