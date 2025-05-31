@@ -57,7 +57,7 @@ export default function Quiz() {
             try {
                 const token = localStorage.getItem("token");
                 const response = await fetch(
-                    `https://backer-back.up.railway.app/quiz/questions/?skip=${testConfig.skip}&limit=${testConfig.limit}`,
+                    `https://backoik-back.up.railway.app/quiz/questions/?skip=${testConfig.skip}&limit=${testConfig.limit}`,
                     {
                         headers: { Authorization: `Bearer ${token}` },
                     }
@@ -105,7 +105,7 @@ export default function Quiz() {
     const submitQuiz = async () => {
         try {
             const token = localStorage.getItem("token");
-            const response = await fetch("https://backer-back.up.railway.app/quiz/submit/", {
+            const response = await fetch("https://backoik-back.up.railway.app/quiz/submit/", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

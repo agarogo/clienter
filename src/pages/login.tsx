@@ -15,7 +15,7 @@ const Login: React.FC = () => {
         setError(null);
 
         try {
-            const response = await fetch("https://backer-back.up.railway.app/token", {
+            const response = await fetch("https://backoik-back.up.railway.app/token", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/x-www-form-urlencoded",

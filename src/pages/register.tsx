@@ -16,7 +16,7 @@ const Register: React.FC = () => {
         setError(null);
 
         try {
-            const response = await fetch("https://backer-back.up.railway.app/register", {
+            const response = await fetch("https://backoik-back.up.railway.app/register", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

@@ -9,7 +9,7 @@ const Profile: React.FC = () => {
 
     useEffect(() => {
         const token = localStorage.getItem("token");
-        fetch("https://backer-back.up.railway.app/users/me", {
+        fetch("https://backoik-back.up.railway.app/users/me", {
             headers: {
                 "Authorization": `Bearer ${token}`,
                 "Content-Type": "application/json",
