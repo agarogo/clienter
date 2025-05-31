@@ -57,7 +57,7 @@ export default function Quiz() {
             try {
                 const token = localStorage.getItem("token");
                 const response = await fetch(
-                    `http://localhost:8000/quiz/questions/?skip=${testConfig.skip}&limit=${testConfig.limit}`,
+                    `https://backer-back.up.railway.app/quiz/questions/?skip=${testConfig.skip}&limit=${testConfig.limit}`,
                     {
                         headers: { Authorization: `Bearer ${token}` },
                     }
