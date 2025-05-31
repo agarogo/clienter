@@ -24,7 +24,7 @@ export default function TasksPage() {
   useEffect(() => {
     const fetchUser = async () => {
       const token = localStorage.getItem("token");
-      const res = await fetch("http://localhost:8000/users/me", {
+      const res = await fetch("https://backer-back.up.railway.app/users/me", {
         headers: { Authorization: `Bearer ${token}` },
       });
       const data = await res.json();

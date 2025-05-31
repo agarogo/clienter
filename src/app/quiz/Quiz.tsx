@@ -105,7 +105,7 @@ export default function Quiz() {
     const submitQuiz = async () => {
         try {
             const token = localStorage.getItem("token");
-            const response = await fetch("http://localhost:8000/quiz/submit/", {
+            const response = await fetch("https://backer-back.up.railway.app/quiz/submit/", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

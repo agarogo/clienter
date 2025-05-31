@@ -15,7 +15,7 @@ export default function RatingPage() {
         const fetchRatings = async () => {
             try {
                 const token = localStorage.getItem("token");
-                const res = await fetch("http://localhost:8000/users/rating", {
+                const res = await fetch("https://backer-back.up.railway.app/users/rating", {
                     headers: {
                         Authorization: `Bearer ${token}`,
                     },
